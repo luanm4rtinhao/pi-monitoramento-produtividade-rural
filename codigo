@@ -1,0 +1,20 @@
+from machine import Pin
+from dht import DHT22
+import time
+
+sensor = DHT22(Pin(4))
+
+print("Sistema iniciado!")
+print("------------------")
+
+while True:
+    sensor.measure()
+
+    temperatura = sensor.temperature()
+    umidade = sensor.humidity()
+
+    print("Temperatura:", temperatura, "°C")
+    print("Umidade:", umidade, "%")
+    print("------------------")
+
+    time.sleep(2)
